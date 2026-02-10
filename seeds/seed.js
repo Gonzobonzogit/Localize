@@ -8,7 +8,7 @@ const seedDatabase = async () => {
     const locations = await Location.bulkCreate([
         { country: 'USA', city: 'New York', continent: 'North America' },
         { country: 'France', city: 'Paris', continent: 'Europe' },
-        { country: 'Japan', city: 'Toyko', continent: 'Asia' },
+        { country: 'Japan', city: 'Tokyo', continent: 'Asia' },
         { country: 'Brazil', city: 'Rio De Janeiro', continent: 'South America' },
         { country: 'Australia', city: 'Sydney', continent: 'Oceania' }
     ]);

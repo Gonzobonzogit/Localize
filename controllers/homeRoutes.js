@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { Event, Location } = require('./models');
+const { Event, Location } = require('../models');
 
 //GET homepage
 router.get('/', async (req, res) => {
     try {
-        const eventData = Event.findAll({
+        const eventData = await Event.findAll({
             include: [
                 {
                     model: Location,
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
                 }
             ],
             limit:10,
-            order: [['event_date, "ASC']]
+            order: [['event_date', 'ASC']]
         });
 
         const events = eventData.map(event => event.get({ plain:true }));

@@ -14,7 +14,7 @@ Event.init(
         title: {
             type: DataTypes.STRING(100),
             allowNull: false,
-            validDate: {
+            validate: {
                 notEmpty: true,
                 len: [1, 100]
             }
