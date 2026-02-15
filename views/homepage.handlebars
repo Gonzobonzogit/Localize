@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-center mb-4">
+            <i class="fas fa-map-marker-alt text-primary me-2"></i>
+            Upcoming Events
+        </h1>
+        <p class="text-center text-muted mb-5">Find and share local events in your area</p>
+    </div>
+</div>
+
+{{#if events.length}}
+    <div class="row g-4">
+        {{#each events}}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{title}}</h5>
+                        <p class="card-text text-muted">{{description}}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="fas fa-calendar me-1"></i>
+                                {{format_date event_date}}
+                            </small>
+                            <small class="text-muted">
+                                <i class="fas fa-map-marker-alt me-1"></i>
+                                {{location.city}}, {{location.country}}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge bg-primary">{{category}}</span>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+{{else}}
+    <div class="text-center py-5">
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i>
+            No events found. <a href="/events/new">Create the first event!</a>
+        </div>
+    </div>
+{{/if}}
